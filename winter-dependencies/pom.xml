@@ -30,7 +30,7 @@
 	<packaging>pom</packaging>
 
 	<name>winter-dependencies</name>
-	<description>Winter framework dependencies bom</description>
+	<description>The Winter framework dependencies bom</description>
 	<inceptionYear>2020</inceptionYear>
 	<organization>
 		<name>Winter Framework</name>

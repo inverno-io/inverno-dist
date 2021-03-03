@@ -25,7 +25,7 @@
 	<packaging>pom</packaging>
 
 	<name>winter-dist-root</name>
-	<description>Winter framework distribution root pom</description>
+	<description>The Winter framework distribution root pom</description>
 	<inceptionYear>2020</inceptionYear>
 	<organization>
 		<name>Winter Framework</name>

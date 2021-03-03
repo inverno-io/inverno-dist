@@ -30,7 +30,7 @@
 	<packaging>pom</packaging>
 
 	<name>winter-parent</name>
-	<description>Winter framework parent pom</description>
+	<description>The Winter framework parent pom</description>
 
 	<build>
 		<pluginManagement>
