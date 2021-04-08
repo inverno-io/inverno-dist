@@ -75,6 +75,7 @@
 	</distributionManagement>
 
 	<dependencies>
+		<!-- Core -->
 		<dependency>
 			<groupId>io.winterframework</groupId>
 			<artifactId>winter-core</artifactId>
@@ -83,6 +84,8 @@
 			<groupId>io.winterframework</groupId>
 			<artifactId>winter-core-annotation</artifactId>
 		</dependency>
+		
+		<!-- Modules -->
 		<dependency>
 			<groupId>io.winterframework.mod</groupId>
 			<artifactId>winter-base</artifactId>
@@ -113,7 +116,14 @@
 			<artifactId>winter-web</artifactId>
 			<version>${version.winter.mods}</version>
 		</dependency>
-
+		
+		<!-- Tools -->
+		<dependency>
+			<groupId>io.winterframework.tool</groupId>
+			<artifactId>winter-maven-plugin</artifactId>
+			<version>${version.winter.tools}</version>
+		</dependency>
+		
 		<!-- Optional -->
 		<dependency>
 			<groupId>io.netty</groupId>
@@ -283,6 +293,24 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-sources-tool-winter-maven-plugin</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.tool.maven.plugin</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.winterframework.tool</groupId>
+									<artifactId>winter-maven-plugin</artifactId>
+									<version>${version.winter.tools}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-dependencies</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -325,7 +353,7 @@
 								<argument>-link</argument>
 								<argument>https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/</argument>
 								<argument>--module</argument>
-								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web</argument>
+								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web,io.winterframework.tool.maven.plugin</argument>
 							</arguments>
 						</configuration>
 					</execution>

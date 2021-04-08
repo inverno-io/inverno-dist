@@ -78,6 +78,7 @@
 	<properties>
 		<version.winter>1.0.2-SNAPSHOT</version.winter>
 		<version.winter.mods>1.0.0-SNAPSHOT</version.winter.mods>
+		<version.winter.tools>1.0.0-SNAPSHOT</version.winter.tools>
 	</properties>
 
 	<dependencyManagement>
@@ -140,6 +141,18 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>io.winterframework.tool</groupId>
+					<artifactId>winter-maven-plugin</artifactId>
+					<version>${version.winter.tools}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 	<profiles>
 		<profile>
