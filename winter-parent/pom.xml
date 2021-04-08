@@ -87,6 +87,10 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+				<plugin>
+					<groupId>io.winterframework.tool</groupId>
+					<artifactId>winter-maven-plugin</artifactId>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
