@@ -86,7 +86,7 @@ We can now start developing a sample REST application. A Winter component or app
 
 ```java
 @io.winterframework.core.annotation.Module
-module io.winterframework.example.sampleapp {
+module io.winterframework.example.sample_app {
     requires io.winterframework.mod.boot;
     requires io.winterframework.mod.web;
 }
@@ -94,10 +94,10 @@ module io.winterframework.example.sampleapp {
 
 Note that we declared the `io.winterframework.mod.boot` and `io.winterframework.mod.web` module dependencies since we want to create a REST application, please refer to the [Winter modules documentation](https://github.com/winterframework-io/winter-mods/tree/master/doc/reference-guide.md) to learn more.
 
-We then can create the main class of our sample REST application in `src/main/java/io/winterframework/example/sampleapp/App.java`:
+We then can create the main class of our sample REST application in `src/main/java/io/winterframework/example/sample_app/App.java`:
 
 ```java
-package io.winterframework.example.sampleapp;
+package io.winterframework.example.sample_app;
 
 import io.winterframework.core.annotation.Bean;
 import io.winterframework.core.v1.Application;
@@ -115,7 +115,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        Application.with(new Sampleapp.Builder()).run();
+        Application.with(new Sample_app.Builder()).run();
     }
 }
 ```
@@ -135,7 +135,9 @@ Winter framework is using [Log4j 2](https://logging.apache.org/log4j/2.x/index.h
 </project>
 ```
 
-Log4j 2 provides a default configuration with a default root logger level set to `ERROR`, resulting in no info messages beign output when starting an application. This can be changed by setting `-Dorg.apache.logging.log4j.level=INFO` system property when running the application.
+Log4j 2 provides a default configuration with a default root logger level set to `ERROR`, resulting in no info messages being output when starting an application. This can be changed by setting `-Dorg.apache.logging.log4j.level=INFO` system property when running the application.
+
+> If you don't include this dependency at runtime, Log4j falls back to the `SimpleLogger` implementation provided with the API and configured using `org.apache.logging.log4j.simplelog.*` system properties. The log level can then be configured by setting `-Dorg.apache.logging.log4j.simplelog.level=INFO` system property when running the application.
 
 However the recommended way is to provide a specific `log4j2.xml` logging configuration file in the project resources under `src/main/resources`:
 
@@ -172,7 +174,7 @@ $ mvn winter:run
 
 ...
 [INFO] --- winter-maven-plugin:1.0.0-SNAPSHOT:run (default-cli) @ sample-app ---
-[INFO] Running project: io.winterframework.example.sampleapp@1.0.0-SNAPSHOT...
+[INFO] Running project: io.winterframework.example.sample_app@1.0.0-SNAPSHOT...
  [═══════════════════════════════════════════════ 100 % ══════════════════════════════════════════════] 
 2021-04-08 23:50:35,261 INFO  [main] i.w.c.v.Application - Winter is starting...
 
@@ -193,16 +195,16 @@ $ mvn winter:run
      ║ Java version        : 16+36-2231                                                           ║
      ║ Java home           : /home/jkuhn/Devel/jdk/jdk-16                                         ║
      ║                                                                                            ║
-     ║ Application module  : io.winterframework.example.sampleapp                                 ║
+     ║ Application module  : io.winterframework.example.sample_app                                ║
      ║ Application version : 1.0.0-SNAPSHOT                                                       ║
-     ║ Application class   : io.winterframework.example.sampleapp.App                             ║
+     ║ Application class   : io.winterframework.example.sample_app.App                            ║
      ║                                                                                            ║
      ║ Modules             :                                                                      ║
      ║  * ...                                                                                     ║
      ╚════════════════════════════════════════════════════════════════════════════════════════════╝
 
 
-2021-04-08 23:50:35,266 INFO  [main] i.w.e.s.Sampleapp - Starting Module io.winterframework.example.sampleapp...
+2021-04-08 23:50:35,266 INFO  [main] i.w.e.s.Sample_app - Starting Module io.winterframework.example.sample_app...
 2021-04-08 23:50:35,266 INFO  [main] i.w.m.b.Boot - Starting Module io.winterframework.mod.boot...
 2021-04-08 23:50:35,446 INFO  [main] i.w.m.b.Boot - Module io.winterframework.mod.boot started in 179ms
 2021-04-08 23:50:35,446 INFO  [main] i.w.m.w.Web - Starting Module io.winterframework.mod.web...
@@ -212,7 +214,7 @@ $ mvn winter:run
 2021-04-08 23:50:35,545 INFO  [main] i.w.m.h.s.i.HttpServer - HTTP Server (nio) listening on http://0.0.0.0:8080
 2021-04-08 23:50:35,546 INFO  [main] i.w.m.h.s.Server - Module io.winterframework.mod.http.server started in 99ms
 2021-04-08 23:50:35,546 INFO  [main] i.w.m.w.Web - Module io.winterframework.mod.web started in 99ms
-2021-04-08 23:50:35,546 INFO  [main] i.w.e.s.Sampleapp - Module io.winterframework.example.sampleapp started in 281ms
+2021-04-08 23:50:35,546 INFO  [main] i.w.e.s.Sample_app - Module io.winterframework.example.sample_app started in 281ms
 
 ```
 
