@@ -1,20 +1,31 @@
+[winter-root]: https://github.com/winterframework-io/winter
+[winter-root-doc]: https://github.com/winterframework-io/winter/tree/master/doc/reference-guide.md
+[winter-mods-root]: https://github.com/winterframework-io/winter-mods
+[winter-mods-root-doc]: https://github.com/winterframework-io/winter-mods/tree/master/doc/reference-guide.md
+[winter-oss-parent]: https://github.com/winterframework-io/winter-oss-parent
+[winter-tool-maven-plugin]: https://github.com/winterframework-io/winter-tools/tree/master/winter-maven-plugin
+
+[jdk]: https://jdk.java.net/
+[maven]: https://maven.apache.org/download.cgi
+[log4j-2]: https://logging.apache.org/log4j/2.x/index.html
+[log4j-2-config]: https://logging.apache.org/log4j/2.x/manual/configuration.html
+[apache-license]: https://www.apache.org/licenses/LICENSE-2.0
+
 # Winter Distribution
 
 The Winter distribution provides a parent POM `io.winterframework.dist:winter-parent` and a BOM `io.winterframework.dist:winter-dependencies` for developing Winter components and applications.
 
-The parent POM inherits from the BOM which inherits from the [Winter OSS parent](https://github.com/winterframework-io/winter-oss-parent) POM. It provides basic build configuration for building Winter components and applications, including dependency management and plugins configuration. It especially includes configuration for the [Winter Maven plugin](https://github.com/winterframework-io/winter-tools/tree/master/winter-maven-plugin).
+The parent POM inherits from the BOM which inherits from the [Winter OSS parent][winter-oss-parent] POM. It provides basic build configuration for building Winter components and applications, including dependency management and plugins configuration. It especially includes configuration for the [Winter Maven plugin][winter-tool-maven-plugin].
 
-The BOM specifies the [Winter core](https://github.com/winterframework-io/winter) and [Winter modules](https://github.com/winterframework-io/winter-mods) dependencies as well as OSS dependencies.
+The BOM specifies the [Winter core][winter-root] and [Winter modules][winter-mods-root] dependencies as well as OSS dependencies.
 
 The Winter distribution thus defines a consistent sets of dependencies and configuration for developing, building, packaging and distributing Winter components and applications. Upgrading the Winter framework version of a project boils down to upgrade the Winter distribution version which is the version of the Winter parent POM or the Winter BOM.
 
 ## Requirements
 
-The Winter framework requires [JDK](https://jdk.java.net/) 9 or later and [Apache Maven](https://maven.apache.org/download.cgi) 3.6.0 or later.
+The Winter framework requires [JDK][jdk] 9 or later and [Apache Maven][maven] 3.6.0 or later.
 
 ## Creating a Winter project
-
-### Project POM
 
 The recommended way to start a new Winter project is to create a Maven project which inherits from the `io.winterframework.dist:winter-parent` project, we might also want to add a dependency to `io.winterframework:winter-core` in order to create a Winter module with IoC/DI:
 
@@ -78,9 +89,9 @@ Winter modules dependencies can be added in the `<dependencies/>` section of the
 </project>
 ```
 
-Please refer to the [Winter core documentation](https://github.com/winterframework-io/winter/tree/master/doc/reference-guide.md) and [Winter modules documentation](https://github.com/winterframework-io/winter-mods/tree/master/doc/reference-guide.md) to learn how to develop with IoC/DI and how to use Winter modules.
+Please refer to the [Winter core documentation][winter-root-doc] and [Winter modules documentation][winter-mods-root-doc] to learn how to develop with IoC/DI and how to use Winter modules.
 
-### Developing a sample Winter application
+### Developing a simple Winter application
 
 We can now start developing a sample REST application. A Winter component or application is a regular Java module annotated with `@io.winterframework.core.annotation.Module`, so the first thing we need to do is to create Java module descriptor `module-info.java` under `src/main/java` which is where Maven finds the sources to compile.
 
@@ -92,7 +103,7 @@ module io.winterframework.example.sample_app {
 }
 ```
 
-Note that we declared the `io.winterframework.mod.boot` and `io.winterframework.mod.web` module dependencies since we want to create a REST application, please refer to the [Winter modules documentation](https://github.com/winterframework-io/winter-mods/tree/master/doc/reference-guide.md) to learn more.
+Note that we declared the `io.winterframework.mod.boot` and `io.winterframework.mod.web` module dependencies since we want to create a REST application, please refer to the [Winter modules documentation][winter-mods-root-doc] to learn more.
 
 We then can create the main class of our sample REST application in `src/main/java/io/winterframework/example/sample_app/App.java`:
 
@@ -122,9 +133,9 @@ public class App {
 
 ### Configuring logging
 
-Winter framework is using [Log4j 2](https://logging.apache.org/log4j/2.x/index.html) for logging, Winter application logging can be activated by adding the dependency to `org.apache.logging.log4j:log4j-core`:
+Winter framework is using [Log4j 2][log4j-2] for logging, Winter application logging can be activated by adding the dependency to `org.apache.logging.log4j:log4j-core`:
 
-```
+```xml
 <project>
     <dependencies>
         <dependency>
@@ -135,9 +146,9 @@ Winter framework is using [Log4j 2](https://logging.apache.org/log4j/2.x/index.h
 </project>
 ```
 
-Log4j 2 provides a default configuration with a default root logger level set to `ERROR`, resulting in no info messages being output when starting an application. This can be changed by setting `-Dorg.apache.logging.log4j.level=INFO` system property when running the application.
-
 > If you don't include this dependency at runtime, Log4j falls back to the `SimpleLogger` implementation provided with the API and configured using `org.apache.logging.log4j.simplelog.*` system properties. The log level can then be configured by setting `-Dorg.apache.logging.log4j.simplelog.level=INFO` system property when running the application.
+
+Log4j 2 provides a default configuration with a default root logger level set to `ERROR`, resulting in no info messages being output when starting an application. This can be changed by setting `-Dorg.apache.logging.log4j.level=INFO` system property when running the application.
 
 However the recommended way is to provide a specific `log4j2.xml` logging configuration file in the project resources under `src/main/resources`:
 
@@ -163,13 +174,13 @@ However the recommended way is to provide a specific `log4j2.xml` logging config
 
 > Note that the Log4j shutdown hook must be disabled so as not to interfere with the Winter application shutdown hook, if it is not disabled, application shutdown logs might be dropped.
 
-> We could have chosen to provide a default logging configuration in the Winter framework itself, but we preferred to stick to standard Log4j 2 configuration rules in order to keep things simple so please refer to the [Log4j 2 configuration documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) to learn how to configure logging.
+> We could have chosen to provide a default logging configuration in the Winter framework itself, but we preferred to stick to standard Log4j 2 configuration rules in order to keep things simple so please refer to the [Log4j 2 configuration documentation][log4j-2-config] to learn how to configure logging.
 
 ### Running the application
 
 The application is now ready and can be run using the `winter:run` goal:
 
-```
+```plaintext
 $ mvn winter:run
 
 ...
@@ -220,7 +231,7 @@ $ mvn winter:run
 
 We can now test the application:
 
-```
+```plaintext
 $ curl http://127.0.0.1:8080/message
 Hello, world!
 ```
@@ -231,7 +242,7 @@ The application can be gracefully shutdown by pressing `Ctrl-c`.
 
 In order to create a native image containing the application and all its dependencies including JDK's dependencies, we can simply invoke the `winter:build-app` goal:
 
-```
+```plaintext
 $ mvn package winter:build-app
 
 ...
@@ -243,7 +254,7 @@ This will create a ZIP archive containing a native application distribution `tar
 
 Then in order to install the application on a compatible platform, we just need to download the archive corresponding to the platform, extract it to some location and run the application. Luckily for us this can be done quite easily with Maven dependency plugin:
 
-```
+```plaintext
 $ mvn dependency:unpack -Dartifact=io.winterframework.example:sample-app:1.0.0-SNAPSHOT:zip:application_linux_amd64 -DoutputDirectory=./
 ...
 $ ./sample-app-1.0.0-SNAPSHOT/bin/sample-app
@@ -280,7 +291,7 @@ It is also possible to create platform specific package such as `.deb` or a `.ms
 </project>
 ```
 
-```
+```plaintext
 $ mvn package
 ...
 ```
@@ -289,7 +300,7 @@ $ mvn package
 
 Such platform-specific package can then be downloaded and installed using the right package manager:
 
-```
+```plaintext
 $ mvn dependency:copy -Dartifact=io.winterframework.example:sample-app:1.0.0-SNAPSHOT:deb:application_linux_amd64 -DoutputDirectory=./
 ...
 $ sudo dpkg -i sample-app-1.0.0-SNAPSHOT-application_linux_amd64.deb
@@ -298,5 +309,9 @@ $ /opt/sample-app/bin/sample-app
 ...
 ```
 
-The Winter Maven plugin allows to create various application images including Docker or OCI container images, please refer to the [Winter Maven plugin documentation](https://github.com/winterframework-io/winter-tools/tree/master/winter-maven-plugin) to learn more.
+The Winter Maven plugin allows to create various application images including Docker or OCI container images, please refer to the [Winter Maven plugin documentation][winter-tool-maven-plugin] to learn more.
+
+## License
+
+The Winter Framework is released under version 2.0 of the [Apache License][apache-license].
 
