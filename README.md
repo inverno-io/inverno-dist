@@ -23,7 +23,7 @@ The Winter distribution thus defines a consistent sets of dependencies and confi
 
 ## Requirements
 
-The Winter framework requires [JDK][jdk] 9 or later and [Apache Maven][maven] 3.6.0 or later.
+The Winter framework requires [JDK][jdk] 14 or later and [Apache Maven][maven] 3.6.0 or later.
 
 ## Creating a Winter project
 
@@ -184,7 +184,7 @@ The application is now ready and can be run using the `winter:run` goal:
 $ mvn winter:run
 
 ...
-[INFO] --- winter-maven-plugin:1.0.0-SNAPSHOT:run (default-cli) @ sample-app ---
+[INFO] --- winter-maven-plugin:1.0.0:run (default-cli) @ sample-app ---
 [INFO] Running project: io.winterframework.example.sample_app@1.0.0-SNAPSHOT...
  [═══════════════════════════════════════════════ 100 % ══════════════════════════════════════════════] 
 2021-04-08 23:50:35,261 INFO  [main] i.w.c.v.Application - Winter is starting...
@@ -243,12 +243,17 @@ The application can be gracefully shutdown by pressing `Ctrl-c`.
 In order to create a native image containing the application and all its dependencies including JDK's dependencies, we can simply invoke the `winter:build-app` goal:
 
 ```plaintext
-$ mvn package winter:build-app
+$ mvn winter:build-app
 
 ...
 [INFO] Building application image: /home/jkuhn/Devel/git/frmk/io.winterframework.example.sample-app/target/maven-winter/application_linux_amd64/sample-app-1.0.0-SNAPSHOT...
  [═══════════════════════════════════════════════  67 % ═════════════>                                ] Creating archive sample-app-1.0.0-SNAPSHOT-application_linux_amd64.zip...
 ```
+
+> This uses `jpackage` tool which is an incubating feature in JDK<16, if you intend to build an application image with an old JDK, you'll need to explicitly add the `jdk.incubator.jpackage` module in `MAVEN_OPTS`:
+> ```plaintext
+> $ export MAVEN_OPTS="--add-modules jdk.incubator.jpackage"
+> ```
 
 This will create a ZIP archive containing a native application distribution `target/sample-app-1.0.0-SNAPSHOT-application_linux_amd64.zip` which will be deployed to the local Maven repository and eventually to a remote Maven repository.
 
