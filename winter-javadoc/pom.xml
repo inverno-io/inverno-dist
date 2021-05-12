@@ -118,11 +118,11 @@
 		</dependency>
 		
 		<!-- Tools -->
-		<dependency>
+		<!--<dependency>
 			<groupId>io.winterframework.tool</groupId>
 			<artifactId>winter-maven-plugin</artifactId>
 			<version>${version.winter.tools}</version>
-		</dependency>
+		</dependency> -->
 		
 		<!-- Optional -->
 		<dependency>
@@ -292,14 +292,14 @@
 							</artifactItems>
 						</configuration>
 					</execution>
-					<execution>
+					<!--<execution>
 						<id>unpack-sources-tool-winter-maven-plugin</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.tool.maven.plugin</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.tool.maven</outputDirectory>
 							<artifactItems>
 								<artifactItem>
 									<groupId>io.winterframework.tool</groupId>
@@ -309,7 +309,7 @@
 								</artifactItem>
 							</artifactItems>
 						</configuration>
-					</execution>
+					</execution> -->
 					<execution>
 						<id>copy-dependencies</id>
 						<phase>generate-resources</phase>
@@ -353,7 +353,8 @@
 								<argument>-link</argument>
 								<argument>https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/</argument>
 								<argument>--module</argument>
-								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web,io.winterframework.tool.maven.plugin</argument>
+<!-- 								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web,io.winterframework.tool.maven</argument> -->
+								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web</argument>
 							</arguments>
 						</configuration>
 					</execution>
@@ -379,45 +380,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	<profiles>
-		<profile>
-			<id>io.winterframework.release</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<inherited>false</inherited>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-								<configuration>
-									<gpgArguments>
-										<arg>--pinentry-mode</arg>
-										<arg>loopback</arg>
-									</gpgArguments>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<extensions>true</extensions>
-						<inherited>false</inherited>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>false</autoReleaseAfterClose>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>
