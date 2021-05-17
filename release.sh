@@ -28,7 +28,7 @@ if (( $# > 0 ))
 		mvn versions:set -DgenerateBackupPoms=false -DprocessAllModules=true -DnewVersion=$1
 		git commit -a -m "Release $1"
 		git tag -a $1 -m "Release $1"
-		mvn clean deploy -Pio.winterframework.release
+		mvn -pl '!winter-javadoc' clean deploy -Pio.winterframework.release
 fi
 
 if (( $# == 2 ))
