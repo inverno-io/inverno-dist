@@ -22,6 +22,7 @@
 		<groupId>io.winterframework</groupId>
 		<artifactId>winter-oss-parent</artifactId>
 		<version>1-SNAPSHOT</version>
+		<relativePath>../../winter-oss-parent</relativePath>
 	</parent>
 
 	<groupId>io.winterframework.dist</groupId>
