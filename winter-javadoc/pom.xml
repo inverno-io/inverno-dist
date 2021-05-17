@@ -352,6 +352,10 @@
 								<argument>https://projectreactor.io/docs/core/release/api/</argument>
 								<argument>-link</argument>
 								<argument>https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/</argument>
+								<argument>-windowtitle</argument>
+								<argument>Winter Framework SDK ${project.version}</argument>
+								<argument>-doctitle</argument>
+								<argument>&lt;h1 class="title"&gt;Winter Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Winter Framework modules.&lt;/p&gt;</argument>
 								<argument>--module</argument>
 <!-- 								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web,io.winterframework.tool.maven</argument> -->
 								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web</argument>
