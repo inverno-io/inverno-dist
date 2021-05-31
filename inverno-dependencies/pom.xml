@@ -19,84 +19,145 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>io.winterframework.dist</groupId>
-		<artifactId>winter-dependencies</artifactId>
-		<version>1.1.0-SNAPSHOT</version>
-		<relativePath>../winter-dependencies</relativePath>
+		<groupId>io.inverno</groupId>
+		<artifactId>inverno-oss-parent</artifactId>
+		<version>2-SNAPSHOT</version>
+		<relativePath>../../inverno-oss-parent</relativePath>
 	</parent>
 
-	<groupId>io.winterframework.dist</groupId>
-	<artifactId>winter-parent</artifactId>
+	<groupId>io.inverno.dist</groupId>
+	<artifactId>inverno-dependencies</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>winter-parent</name>
-	<description>The Winter framework parent pom</description>
+	<name>inverno-dependencies</name>
+	<description>The Inverno framework dependencies bom</description>
+	<inceptionYear>2020</inceptionYear>
+	<organization>
+		<name>Inverno Framework</name>
+		<url>https://inverno.io</url>
+	</organization>
+	<url>https://github.com/inverno-io/inverno-dist/tree/master/inverno-dependencies</url>
 
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>https://spdx.org/licenses/Apache-2.0</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>jkuhn</id>
+			<name>Jeremy Kuhn</name>
+			<email>jeremy.kuhn@inverno.io</email>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/inverno-io/inverno-dist.git</url>
+		<connection>scm:git:git://github.com/inverno-io/inverno-dist.git</connection>
+		<developerConnection>scm:git:git@github.com:inverno-io/inverno-dist.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/inverno-io/inverno-dist/issues</url>
+	</issueManagement>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement>
+
+	<properties>
+		<version.inverno>1.2.0-SNAPSHOT</version.inverno>
+		<version.inverno.mods>1.1.0-SNAPSHOT</version.inverno.mods>
+		<version.inverno.tools>1.1.0-SNAPSHOT</version.inverno.tools>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.inverno</groupId>
+				<artifactId>inverno-core</artifactId>
+				<version>${version.inverno}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno</groupId>
+				<artifactId>inverno-core-annotation</artifactId>
+				<version>${version.inverno}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno</groupId>
+				<artifactId>inverno-core-compiler</artifactId>
+				<version>${version.inverno}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-base</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-boot</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-configuration</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-configuration-compiler</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-http-base</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-http-server</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-web</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-web-compiler</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${version.maven-compiler-plugin}</version>
-					<configuration>
-						<annotationProcessorPaths combine.children="append">
-							<path>
-								<groupId>io.winterframework</groupId>
-								<artifactId>winter-core-compiler</artifactId>
-								<version>${version.winter}</version>
-							</path>
-							<path>
-								<groupId>io.winterframework.mod</groupId>
-								<artifactId>winter-configuration-compiler</artifactId>
-								<version>${version.winter.mods}</version>
-							</path>
-							<path> 
-								<groupId>io.winterframework.mod</groupId>
-								<artifactId>winter-web-compiler</artifactId>
-								<version>${version.winter.mods}</version>
-							</path>
-							<!-- MCOMPILER-272 -->
-							<path>
-								<groupId>io.winterframework.mod</groupId>
-								<artifactId>winter-configuration</artifactId>
-								<version>${version.winter.mods}</version>
-							</path>
-							<path>
-								<groupId>io.winterframework.mod</groupId>
-								<artifactId>winter-web</artifactId>
-								<version>${version.winter.mods}</version>
-							</path>
-							<path>
-								<groupId>io.winterframework.mod</groupId>
-								<artifactId>winter-http-base</artifactId>
-								<version>${version.winter.mods}</version>
-							</path>
-							<path>
-								<groupId>io.winterframework.mod</groupId>
-								<artifactId>winter-http-server</artifactId>
-								<version>${version.winter.mods}</version>
-							</path>
-						</annotationProcessorPaths>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.ow2.asm</groupId>
-							<artifactId>asm</artifactId>
-							<version>${version.asm}</version> <!-- Use newer version of ASM -->
-						</dependency>
-					</dependencies>
-				</plugin>
-				<plugin>
-					<groupId>io.winterframework.tool</groupId>
-					<artifactId>winter-maven-plugin</artifactId>
+					<groupId>io.inverno.tool</groupId>
+					<artifactId>inverno-maven-plugin</artifactId>
+					<version>${version.inverno.tools}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+
 	<profiles>
 		<profile>
-			<id>io.winterframework.install</id>
+			<id>io.inverno.install</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -116,7 +177,8 @@
 								<configuration>
 									<target>
 										<property name="sourceFile" value="pom.xml" />
-										<xslt in="${sourceFile}" out="${sourceFile}.new" force="true">
+										<xslt in="${sourceFile}" out="${sourceFile}.new"
+											force="true">
 											<style>
 												<string><![CDATA[
 <xsl:stylesheet version="2.0"
@@ -159,7 +221,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>io.winterframework.prerelease</id>
+			<id>io.inverno.prerelease</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -196,7 +258,8 @@
 								<configuration>
 									<target>
 										<property name="sourceFile" value="pom.xml" />
-										<xslt in="${sourceFile}" out="${sourceFile}.new" force="true">
+										<xslt in="${sourceFile}" out="${sourceFile}.new"
+											force="true">
 											<style>
 												<string><![CDATA[
 <xsl:stylesheet version="2.0"
@@ -239,7 +302,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>io.winterframework.release</id>
+			<id>io.inverno.release</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -287,7 +350,8 @@
 								<configuration>
 									<target>
 										<property name="sourceFile" value="pom.xml" />
-										<xslt in="${sourceFile}" out="${sourceFile}.new" force="true">
+										<xslt in="${sourceFile}" out="${sourceFile}.new"
+											force="true">
 											<style>
 												<string><![CDATA[
 <xsl:stylesheet version="2.0"

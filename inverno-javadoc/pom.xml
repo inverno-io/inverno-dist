@@ -19,23 +19,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>io.winterframework.dist</groupId>
-		<artifactId>winter-dependencies</artifactId>
+		<groupId>io.inverno.dist</groupId>
+		<artifactId>inverno-dependencies</artifactId>
 		<version>1.1.0-SNAPSHOT</version>
-		<relativePath>../winter-dependencies</relativePath>
+		<relativePath>../inverno-dependencies</relativePath>
 	</parent>
 	
-	<artifactId>winter-javadoc</artifactId>
+	<artifactId>inverno-javadoc</artifactId>
 	<packaging>pom</packaging>
 
-	<name>winter-javadoc</name>
-	<description>The Winter framework javadoc</description>
+	<name>inverno-javadoc</name>
+	<description>The Inverno framework javadoc</description>
 	<inceptionYear>2020</inceptionYear>
 	<organization>
-		<name>Winter Framework IO</name>
-		<url>https://winterframework.io</url>
+		<name>Inverno Framework</name>
+		<url>https://inverno.io</url>
 	</organization>
-	<url>https://github.com/winterframework-io/winter-dist/winter-javadoc</url>
+	<url>https://github.com/inverno-io/inverno-dist/tree/master/inverno-javadoc</url>
 
 	<licenses>
 		<license>
@@ -48,19 +48,19 @@
 		<developer>
 			<id>jkuhn</id>
 			<name>Jeremy Kuhn</name>
-			<email>jeremy.kuhn@winterframework.io</email>
+			<email>jeremy.kuhn@inverno.io</email>
 		</developer>
 	</developers>
 
 	<scm>
-		<url>https://github.com/winterframework-io/winter-dist.git</url>
-		<connection>scm:git:git://github.com/winterframework-io/winter-dist.git</connection>
-		<developerConnection>scm:git:git@github.com:winterframework-io/winter-dist.git</developerConnection>
+		<url>https://github.com/inverno-io/inverno-dist.git</url>
+		<connection>scm:git:git://github.com/inverno-io/inverno-dist.git</connection>
+		<developerConnection>scm:git:git@github.com:inverno-io/inverno-dist.git</developerConnection>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/winterframework-io/winter-dist/issues</url>
+		<url>https://github.com/inverno-io/inverno-dist/issues</url>
 	</issueManagement>
 
 	<distributionManagement>
@@ -77,51 +77,51 @@
 	<dependencies>
 		<!-- Core -->
 		<dependency>
-			<groupId>io.winterframework</groupId>
-			<artifactId>winter-core</artifactId>
+			<groupId>io.inverno</groupId>
+			<artifactId>inverno-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.winterframework</groupId>
-			<artifactId>winter-core-annotation</artifactId>
+			<groupId>io.inverno</groupId>
+			<artifactId>inverno-core-annotation</artifactId>
 		</dependency>
 		
 		<!-- Modules -->
 		<dependency>
-			<groupId>io.winterframework.mod</groupId>
-			<artifactId>winter-base</artifactId>
-			<version>${version.winter.mods}</version>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-base</artifactId>
+			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.winterframework.mod</groupId>
-			<artifactId>winter-boot</artifactId>
-			<version>${version.winter.mods}</version>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-boot</artifactId>
+			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.winterframework.mod</groupId>
-			<artifactId>winter-configuration</artifactId>
-			<version>${version.winter.mods}</version>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-configuration</artifactId>
+			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.winterframework.mod</groupId>
-			<artifactId>winter-http-base</artifactId>
-			<version>${version.winter.mods}</version>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-http-base</artifactId>
+			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.winterframework.mod</groupId>
-			<artifactId>winter-http-server</artifactId>
-			<version>${version.winter.mods}</version>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-http-server</artifactId>
+			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.winterframework.mod</groupId>
-			<artifactId>winter-web</artifactId>
-			<version>${version.winter.mods}</version>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-web</artifactId>
+			<version>${version.inverno.mods}</version>
 		</dependency>
 		
 		<!-- Tools -->
 		<!--<dependency>
-			<groupId>io.winterframework.tool</groupId>
-			<artifactId>winter-maven-plugin</artifactId>
-			<version>${version.winter.tools}</version>
+			<groupId>io.inverno.tool</groupId>
+			<artifactId>inverno-maven-plugin</artifactId>
+			<version>${version.inverno.tools}</version>
 		</dependency> -->
 		
 		<!-- Optional -->
@@ -149,162 +149,162 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>unpack-sources-winter-core</id>
+						<id>unpack-sources-inverno-core</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.core</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.core</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework</groupId>
-									<artifactId>winter-core</artifactId>
-									<version>${version.winter}</version>
+									<groupId>io.inverno</groupId>
+									<artifactId>inverno-core</artifactId>
+									<version>${version.inverno}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-winter-core-annotation</id>
+						<id>unpack-sources-inverno-core-annotation</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.core.annotation</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.core.annotation</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework</groupId>
-									<artifactId>winter-core-annotation</artifactId>
-									<version>${version.winter}</version>
+									<groupId>io.inverno</groupId>
+									<artifactId>inverno-core-annotation</artifactId>
+									<version>${version.inverno}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-mod-winter-base</id>
+						<id>unpack-sources-mod-inverno-base</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.mod.base</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.base</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.mod</groupId>
-									<artifactId>winter-base</artifactId>
-									<version>${version.winter.mods}</version>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-base</artifactId>
+									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-mod-winter-boot</id>
+						<id>unpack-sources-mod-inverno-boot</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.mod.boot</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.boot</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.mod</groupId>
-									<artifactId>winter-boot</artifactId>
-									<version>${version.winter.mods}</version>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-boot</artifactId>
+									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-mod-winter-configuration</id>
+						<id>unpack-sources-mod-inverno-configuration</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.mod.configuration</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.configuration</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.mod</groupId>
-									<artifactId>winter-configuration</artifactId>
-									<version>${version.winter.mods}</version>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-configuration</artifactId>
+									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-mod-winter-http-base</id>
+						<id>unpack-sources-mod-inverno-http-base</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.mod.http.base</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.http.base</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.mod</groupId>
-									<artifactId>winter-http-base</artifactId>
-									<version>${version.winter.mods}</version>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-http-base</artifactId>
+									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-mod-winter-http-server</id>
+						<id>unpack-sources-mod-inverno-http-server</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.mod.http.server</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.http.server</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.mod</groupId>
-									<artifactId>winter-http-server</artifactId>
-									<version>${version.winter.mods}</version>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-http-server</artifactId>
+									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<execution>
-						<id>unpack-sources-mod-winter-web</id>
+						<id>unpack-sources-mod-inverno-web</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.mod.web</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.web</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.mod</groupId>
-									<artifactId>winter-web</artifactId>
-									<version>${version.winter.mods}</version>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-web</artifactId>
+									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 					<!--<execution>
-						<id>unpack-sources-tool-winter-maven-plugin</id>
+						<id>unpack-sources-tool-inverno-maven-plugin</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/jmods-src/io.winterframework.tool.maven</outputDirectory>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.tool.maven</outputDirectory>
 							<artifactItems>
 								<artifactItem>
-									<groupId>io.winterframework.tool</groupId>
-									<artifactId>winter-maven-plugin</artifactId>
-									<version>${version.winter.tools}</version>
+									<groupId>io.inverno.tool</groupId>
+									<artifactId>inverno-maven-plugin</artifactId>
+									<version>${version.inverno.tools}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 							</artifactItems>
@@ -317,7 +317,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<excludeGroupIds>io.winterframework,io.winterframework.mod</excludeGroupIds>
+							<excludeGroupIds>io.inverno,io.inverno.mod</excludeGroupIds>
 							<outputDirectory>${project.build.directory}/jmods</outputDirectory>
 						</configuration>
 					</execution>
@@ -353,12 +353,12 @@
 								<argument>-link</argument>
 								<argument>https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/</argument>
 								<argument>-windowtitle</argument>
-								<argument>Winter Framework SDK ${project.version}</argument>
+								<argument>Inverno Framework SDK ${project.version}</argument>
 								<argument>-doctitle</argument>
-								<argument>&lt;h1 class="title"&gt;Winter Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Winter Framework modules.&lt;/p&gt;</argument>
+								<argument>&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;</argument>
 								<argument>--module</argument>
-<!-- 								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web,io.winterframework.tool.maven</argument> -->
-								<argument>io.winterframework.core,io.winterframework.core.annotation,io.winterframework.mod.base,io.winterframework.mod.boot,io.winterframework.mod.configuration,io.winterframework.mod.http.base,io.winterframework.mod.http.server,io.winterframework.mod.web</argument>
+<!-- 								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.web,io.inverno.tool.maven</argument> -->
+								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.web</argument>
 							</arguments>
 						</configuration>
 					</execution>

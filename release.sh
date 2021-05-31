@@ -22,13 +22,13 @@ if (( $# > 0 ))
 	then
 		echo "===== Releasing: $1 ====="
 		mvn -o versions:update-parent -DgenerateBackupPoms=false
-		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.winter
-		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.winter.mods
-		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.winter.tools
+		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno
+		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno.mods
+		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno.tools
 		mvn versions:set -DgenerateBackupPoms=false -DprocessAllModules=true -DnewVersion=$1
 		git commit -a -m "Release $1"
 		git tag -a $1 -m "Release $1"
-		mvn -pl '!winter-javadoc' clean deploy -Pio.winterframework.release
+		mvn -pl '!inverno-javadoc' clean deploy -Pio.inverno.release
 fi
 
 if (( $# == 2 ))
@@ -39,9 +39,9 @@ if (( $# == 2 ))
 		fi
 		echo "===== New Snapshot: $2 ====="
 		mvn -o versions:update-parent -DgenerateBackupPoms=false -DallowSnapshots=true
-		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.winter -DallowSnapshots=true
-		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.winter.mods -DallowSnapshots=true
-		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.winter.tools -DallowSnapshots=true
+		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno -DallowSnapshots=true
+		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno.mods -DallowSnapshots=true
+		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno.tools -DallowSnapshots=true
 		mvn versions:set -DgenerateBackupPoms=false -DprocessAllModules=true -DnewVersion=$2
 		git commit -a -m "$2"
 fi
