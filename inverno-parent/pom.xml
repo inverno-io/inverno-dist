@@ -51,6 +51,11 @@
 								<artifactId>inverno-configuration-compiler</artifactId>
 								<version>${version.inverno.mods}</version>
 							</path>
+							<path>
+								<groupId>io.inverno.mod</groupId>
+								<artifactId>inverno-irt-compiler</artifactId>
+								<version>${version.inverno.mods}</version>
+							</path>
 							<path> 
 								<groupId>io.inverno.mod</groupId>
 								<artifactId>inverno-web-compiler</artifactId>
@@ -60,6 +65,11 @@
 							<path>
 								<groupId>io.inverno.mod</groupId>
 								<artifactId>inverno-configuration</artifactId>
+								<version>${version.inverno.mods}</version>
+							</path>
+							<path>
+								<groupId>io.inverno.mod</groupId>
+								<artifactId>inverno-irt</artifactId>
 								<version>${version.inverno.mods}</version>
 							</path>
 							<path>

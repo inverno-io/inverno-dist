@@ -113,6 +113,21 @@
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-irt</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-sql</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-sql-vertx</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-web</artifactId>
 			<version>${version.inverno.mods}</version>
 		</dependency>
@@ -275,6 +290,60 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-sources-mod-inverno-irt</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.irt</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-irt</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-sql</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.sql</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-sql</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-sql-vertx</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.sql.vertx</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-sql-vertx</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-sources-mod-inverno-web</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -358,7 +427,7 @@
 								<argument>&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;</argument>
 								<argument>--module</argument>
 <!-- 								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.web,io.inverno.tool.maven</argument> -->
-								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.web</argument>
+								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web</argument>
 							</arguments>
 						</configuration>
 					</execution>

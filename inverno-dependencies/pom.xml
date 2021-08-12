@@ -132,6 +132,26 @@
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-irt</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-irt-compiler</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-sql</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-sql-vertx</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-web</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
