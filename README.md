@@ -37,7 +37,7 @@ The recommended way to start a new Inverno project is to create a Maven project 
     <parent>
         <groupId>io.inverno.dist</groupId>
         <artifactId>inverno-parent</artifactId>
-        <version>1.2.0</version>
+        <version>1.2.1</version>
     </parent>
     <groupId>io.inverno.example</groupId>
     <artifactId>sample-app</artifactId>
@@ -63,7 +63,7 @@ If it is not possible to inherit from the Inverno parent POM, we can also declar
             <dependency>
                 <groupId>io.inverno.dist</groupId>
                 <artifactId>inverno-dependencies</artifactId>
-                <version>1.2.0</version>
+                <version>1.2.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
