@@ -13,6 +13,8 @@
 
 # Inverno Distribution
 
+[![CI/CD](https://github.com/inverno-io/inverno-dist/actions/workflows/maven.yml/badge.svg)](https://github.com/inverno-io/inverno-dist/actions/workflows/maven.yml)
+
 The Inverno distribution provides a parent POM `io.inverno.dist:inverno-parent` and a BOM `io.inverno.dist:inverno-dependencies` for developing Inverno components and applications.
 
 The parent POM inherits from the BOM which inherits from the [Inverno OSS parent][inverno-oss-parent] POM. It provides basic build configuration for building Inverno components and applications, including dependency management and plugins configuration. It especially includes configuration for the [Inverno Maven plugin][inverno-tool-maven-plugin].
