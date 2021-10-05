@@ -21,7 +21,7 @@ fi
 if (( $# > 0 ))
 	then
 		echo "===== Releasing: $1 ====="
-		mvn -o versions:update-parent -DgenerateBackupPoms=false -DallowSnapshots=false
+		mvn -o versions:update-parent -DgenerateBackupPoms=false -DallowSnapshots=false -DallowDowngrade=true
 		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno -DallowSnapshots=false -DallowDowngrade=true
 		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno.mods -DallowSnapshots=false -DallowDowngrade=true
 		mvn -o versions:update-property -DgenerateBackupPoms=false -Dproperty=version.inverno.tools -DallowSnapshots=false -DallowDowngrade=true
