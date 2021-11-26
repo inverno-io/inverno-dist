@@ -151,6 +151,11 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>io.netty.incubator</groupId>
+			<artifactId>netty-incubator-transport-native-io_uring</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>io.lettuce</groupId>
 			<artifactId>lettuce-core</artifactId>
 			<optional>true</optional>
