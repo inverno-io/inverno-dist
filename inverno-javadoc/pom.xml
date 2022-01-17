@@ -118,6 +118,16 @@
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-redis</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-redis-lettuce</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-sql</artifactId>
 			<version>${version.inverno.mods}</version>
 		</dependency>
@@ -333,6 +343,42 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-sources-mod-inverno-redis</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.redis</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-redis</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-redis-lettuce</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.redis.lettuce</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-redis-lettuce</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-sources-mod-inverno-sql</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -451,8 +497,7 @@
 								<argument>-doctitle</argument>
 								<argument>&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;</argument>
 								<argument>--module</argument>
-<!-- 								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.web,io.inverno.tool.maven</argument> -->
-								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web</argument>
+								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web</argument>
 							</arguments>
 						</configuration>
 					</execution>

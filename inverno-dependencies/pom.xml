@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>io.inverno</groupId>
 		<artifactId>inverno-oss-parent</artifactId>
-		<version>5</version>
+		<version>6-SNAPSHOT</version>
 		<relativePath>../../inverno-oss-parent</relativePath>
 	</parent>
 
@@ -138,6 +138,16 @@
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-irt-compiler</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-redis</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-redis-lettuce</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
 			<dependency>
