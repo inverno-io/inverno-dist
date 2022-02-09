@@ -78,7 +78,7 @@
 
 	<properties>
 		<version.inverno>1.5.0-SNAPSHOT</version.inverno>
-		<version.inverno.mods>1.5.0-SNAPSHOT</version.inverno.mods>
+		<version.inverno.mods>1.4.1</version.inverno.mods>
 		<version.inverno.tools>1.2.3</version.inverno.tools>
 	</properties>
 
