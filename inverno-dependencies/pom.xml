@@ -162,7 +162,7 @@
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
-				<artifactId>inverno-security-jw-sekat</artifactId>
+				<artifactId>inverno-security-jose</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
 			<dependency>
