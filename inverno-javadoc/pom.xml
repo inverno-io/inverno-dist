@@ -118,6 +118,11 @@
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-ldap</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-redis</artifactId>
 			<version>${version.inverno.mods}</version>
 		</dependency>
@@ -139,6 +144,11 @@
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-security-jose</artifactId>
+			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-security-ldap</artifactId>
 			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
@@ -203,6 +213,11 @@
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-pg-client</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
@@ -358,6 +373,24 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-sources-mod-inverno-ldap</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.ldap</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-ldap</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-sources-mod-inverno-redis</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -441,6 +474,24 @@
 								<artifactItem>
 									<groupId>io.inverno.mod</groupId>
 									<artifactId>inverno-security-jose</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-security-ldap</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.security.ldap</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-security-ldap</artifactId>
 									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
@@ -566,7 +617,7 @@
 								<argument>-doctitle</argument>
 								<argument>&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;</argument>
 								<argument>--module</argument>
-								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web</argument>
+								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web</argument>
 							</arguments>
 						</configuration>
 					</execution>
