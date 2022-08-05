@@ -596,29 +596,8 @@
 						<configuration>
 							<executable>${JAVA_HOME}/bin/javadoc</executable>
 							<workingDirectory>${project.build.directory}</workingDirectory>
-							<arguments>
-								<argument>-p</argument>
-								<argument>jmods</argument>
-								<argument>--module-source-path</argument>
-								<argument>jmods-src</argument>
-								<argument>-d</argument>
-								<argument>apidocs</argument>
-								<argument>-author</argument>
-								<argument>-link</argument>
-								<argument>https://docs.oracle.com/en/java/javase/15/docs/api</argument>
-								<argument>-link</argument>
-								<argument>https://netty.io/4.1/api/</argument>
-								<argument>-link</argument>
-								<argument>https://projectreactor.io/docs/core/release/api/</argument>
-								<argument>-link</argument>
-								<argument>https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/</argument>
-								<argument>-windowtitle</argument>
-								<argument>Inverno Framework SDK ${project.version}</argument>
-								<argument>-doctitle</argument>
-								<argument>&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;</argument>
-								<argument>--module</argument>
-								<argument>io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web</argument>
-							</arguments>
+							<commandlineArgs>-p jmods --module-source-path jmods-src -d apidocs -author -link https://docs.oracle.com/en/java/javase/15/docs/api -link https://netty.io/4.1/api/ -link https://projectreactor.io/docs/core/release/api/ -link https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/ -windowtitle "Inverno Framework SDK ${project.version}" -doctitle "&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;" --module io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web
+							</commandlineArgs>
 						</configuration>
 					</execution>
 				</executions>
