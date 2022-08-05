@@ -25,7 +25,7 @@ The Inverno distribution thus defines a consistent sets of dependencies and conf
 
 ## Requirements
 
-The Inverno framework requires [JDK][jdk] 14 or later and [Apache Maven][maven] 3.6.0 or later.
+The Inverno framework requires [JDK][jdk] 15 or later and [Apache Maven][maven] 3.6.0 or later.
 
 ## Creating an Inverno project
 
