@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>io.inverno</groupId>
 		<artifactId>inverno-oss-parent</artifactId>
-		<version>7</version>
+		<version>8-SNAPSHOT</version>
 		<relativePath>../../inverno-oss-parent</relativePath>
 	</parent>
 
@@ -127,6 +127,11 @@
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-http-client</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-http-server</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
@@ -194,6 +199,12 @@
 				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-web-compiler</artifactId>
 				<version>${version.inverno.mods}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>io.inverno.tool</groupId>
+				<artifactId>inverno-build-tools</artifactId>
+				<version>${version.inverno.tools}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

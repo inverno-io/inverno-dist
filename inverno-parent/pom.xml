@@ -107,6 +107,38 @@
 				<plugin>
 					<groupId>io.inverno.tool</groupId>
 					<artifactId>inverno-maven-plugin</artifactId>
+					<configuration>
+						<moduleOverrides>
+							<module>
+								<name>org.apache.logging.log4j.core</name>
+								<uses>
+									<use>
+										<type>org.apache.logging.log4j.core.util.ContextDataProvider</type>
+									</use>
+									<use>
+										<type>org.apache.logging.log4j.core.util.WatchEventService</type>
+									</use>
+									<use>
+										<type>org.apache.logging.log4j.core.net.MailManagerFactory</type>
+									</use>
+								</uses>
+							</module>
+							<module>
+								<name>io.vertx.core</name>
+								<uses>
+									<use>
+										<type>io.vertx.core.spi.VertxServiceProvider</type>
+									</use>
+									<use>
+										<type>io.vertx.core.spi.VerticleFactory</type>
+									</use>
+									<use>
+										<type>io.vertx.core.spi.JsonFactory</type>
+									</use>
+								</uses>
+							</module>
+						</moduleOverrides>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
