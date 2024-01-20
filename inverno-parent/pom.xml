@@ -135,10 +135,21 @@
 									<use>
 										<type>io.vertx.core.spi.JsonFactory</type>
 									</use>
+									<use>
+										<type>io.vertx.core.spi.transport.Transport</type>
+									</use>
 								</uses>
 							</module>
 						</moduleOverrides>
 					</configuration>
+					<dependencies>
+						<!-- https://github.com/actions/runner-images/issues/7216 -->
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-utils</artifactId>
+							<version>3.5.1</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 			</plugins>
 		</pluginManagement>
