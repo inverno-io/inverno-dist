@@ -186,6 +186,16 @@
 		
 		<!-- Optional -->
 		<dependency>
+			<groupId>com.aayushatharva.brotli4j</groupId>
+			<artifactId>brotli4j</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>io.lettuce</groupId>
+			<artifactId>lettuce-core</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-transport-classes-epoll</artifactId>
 			<optional>true</optional>
@@ -198,11 +208,6 @@
 		<dependency>
 			<groupId>io.netty.incubator</groupId>
 			<artifactId>netty-incubator-transport-classes-io_uring</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>io.lettuce</groupId>
-			<artifactId>lettuce-core</artifactId>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
