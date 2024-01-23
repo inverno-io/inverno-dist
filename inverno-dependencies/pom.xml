@@ -27,7 +27,7 @@
 
 	<groupId>io.inverno.dist</groupId>
 	<artifactId>inverno-dependencies</artifactId>
-	<version>1.6.0</version>
+	<version>1.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>inverno-dependencies</name>
@@ -77,7 +77,7 @@
 	</distributionManagement>
 
 	<properties>
-		<version.inverno>1.5.3</version.inverno>
+		<version.inverno>1.6.0-SNAPSHOT</version.inverno>
 		<version.inverno.mods>1.6.0</version.inverno.mods>
 		<version.inverno.tools>1.4.0</version.inverno.tools>
 	</properties>
