@@ -78,8 +78,8 @@
 
 	<properties>
 		<version.inverno>1.6.0-SNAPSHOT</version.inverno>
-		<version.inverno.mods>1.6.0</version.inverno.mods>
-		<version.inverno.tools>1.4.0</version.inverno.tools>
+		<version.inverno.mods>1.7.0-SNAPSHOT</version.inverno.mods>
+		<version.inverno.tools>1.5.0-SNAPSHOT</version.inverno.tools>
 	</properties>
 
 	<dependencyManagement>
