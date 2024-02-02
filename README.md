@@ -27,6 +27,8 @@ The Inverno distribution thus defines a consistent sets of dependencies and conf
 
 The Inverno framework requires [JDK][jdk] 15 or later and [Apache Maven][maven] 3.6.0 or later.
 
+> The Inverno compiler (when displaying bean dependency cycles), the Inverno tools (when displaying the progress bar) and the standard application banner (displayed when bootstrapping an Inverno application) output unicode characters which are supported out of the box by Linux or MacOS terminals but unfortunately not by the Windows terminal for which the unicode support must be enabled explicitly, this can be done in Regional Settings > Administrative > Change System Local > Use Unicode UTF-8 for worldwide language support. Another viable solution is to use the Git bash on Windows which also supports unicode out of the box. Please note that this is purely cosmetic and has no impact on the applications.
+
 ## Creating an Inverno project
 
 The recommended way to start a new Inverno project is to create a Maven project which inherits from the `io.inverno.dist:inverno-parent` project, we might also want to add a dependency to `io.inverno:inverno-core` in order to create an Inverno module with IoC/DI:
