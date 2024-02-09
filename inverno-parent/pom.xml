@@ -81,6 +81,11 @@
 							</path>
 							<path>
 								<groupId>io.inverno.mod</groupId>
+								<artifactId>inverno-web-client</artifactId>
+								<version>${version.inverno.mods}</version>
+							</path>
+							<path>
+								<groupId>io.inverno.mod</groupId>
 								<artifactId>inverno-web-server</artifactId>
 								<version>${version.inverno.mods}</version>
 							</path>
