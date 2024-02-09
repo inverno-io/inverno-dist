@@ -103,11 +103,11 @@ We can now start developing a sample REST application. An Inverno component or a
 @io.inverno.core.annotation.Module
 module io.inverno.example.sample_app {
     requires io.inverno.mod.boot;
-    requires io.inverno.mod.web;
+    requires io.inverno.mod.web.server;
 }
 ```
 
-Note that we declared the `io.inverno.mod.boot` and `io.inverno.mod.web` module dependencies since we want to create a REST application, please refer to the [Inverno modules documentation][inverno-mods-root-doc] to learn more.
+Note that we declared the `io.inverno.mod.boot` and `io.inverno.mod.web.server` module dependencies since we want to create a REST application, please refer to the [Inverno modules documentation][inverno-mods-root-doc] to learn more.
 
 We then can create the main class of our sample REST application in `src/main/java/io/inverno/example/sample_app/App.java`:
 
@@ -117,8 +117,8 @@ package io.inverno.example.sample_app;
 import io.inverno.core.annotation.Bean;
 import io.inverno.core.v1.Application;
 import io.inverno.mod.base.resource.MediaTypes;
-import io.inverno.mod.web.annotation.WebController;
-import io.inverno.mod.web.annotation.WebRoute;
+import io.inverno.mod.web.server.annotation.WebController;
+import io.inverno.mod.web.server.annotation.WebRoute;
 
 @Bean
 @WebController
@@ -222,13 +222,13 @@ $ mvn inverno:run
 2021-04-08 23:50:35,266 INFO  [main] i.w.e.s.Sample_app - Starting Module io.inverno.example.sample_app...
 2021-04-08 23:50:35,266 INFO  [main] i.w.m.b.Boot - Starting Module io.inverno.mod.boot...
 2021-04-08 23:50:35,446 INFO  [main] i.w.m.b.Boot - Module io.inverno.mod.boot started in 179ms
-2021-04-08 23:50:35,446 INFO  [main] i.w.m.w.Web - Starting Module io.inverno.mod.web...
+2021-04-08 23:50:35,446 INFO  [main] i.w.m.w.Web - Starting Module io.inverno.mod.web.server...
 2021-04-08 23:50:35,446 INFO  [main] i.w.m.h.s.Server - Starting Module io.inverno.mod.http.server...
 2021-04-08 23:50:35,446 INFO  [main] i.w.m.h.b.Base - Starting Module io.inverno.mod.http.base...
 2021-04-08 23:50:35,450 INFO  [main] i.w.m.h.b.Base - Module io.inverno.mod.http.base started in 3ms
 2021-04-08 23:50:35,545 INFO  [main] i.w.m.h.s.i.HttpServer - HTTP Server (nio) listening on http://0.0.0.0:8080
 2021-04-08 23:50:35,546 INFO  [main] i.w.m.h.s.Server - Module io.inverno.mod.http.server started in 99ms
-2021-04-08 23:50:35,546 INFO  [main] i.w.m.w.Web - Module io.inverno.mod.web started in 99ms
+2021-04-08 23:50:35,546 INFO  [main] i.w.m.w.Web - Module io.inverno.mod.web.server started in 99ms
 2021-04-08 23:50:35,546 INFO  [main] i.w.e.s.Sample_app - Module io.inverno.example.sample_app started in 281ms
 
 ```

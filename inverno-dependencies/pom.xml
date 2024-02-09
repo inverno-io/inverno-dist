@@ -192,12 +192,12 @@
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
-				<artifactId>inverno-web</artifactId>
+				<artifactId>inverno-web-compiler</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
-				<artifactId>inverno-web-compiler</artifactId>
+				<artifactId>inverno-web-server</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
 			
