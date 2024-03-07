@@ -110,18 +110,28 @@
 					<configuration>
 						<moduleOverrides>
 							<module>
-								<name>org.apache.logging.log4j.core</name>
-								<uses>
-									<use>
-										<type>org.apache.logging.log4j.core.util.ContextDataProvider</type>
-									</use>
-									<use>
-										<type>org.apache.logging.log4j.core.util.WatchEventService</type>
-									</use>
-									<use>
-										<type>org.apache.logging.log4j.core.net.MailManagerFactory</type>
-									</use>
-								</uses>
+								<name>com.ongres.scram.client</name>
+								<requires>
+									<require>
+										<module>com.ongres.scram.common</module>
+									</require>
+								</requires>
+							</module>
+							<module>
+								<name>com.ongres.scram.common</name>
+								<requires>
+									<require>
+										<module>com.ongres.stringprep.saslprep</module>
+									</require>
+								</requires>
+							</module>
+							<module>
+								<name>com.ongres.stringprep.saslprep</name>
+								<requires>
+									<require>
+										<module>com.ongres.stringprep.stringprep</module>
+									</require>
+								</requires>
 							</module>
 							<module>
 								<name>io.vertx.core</name>
@@ -137,6 +147,31 @@
 									</use>
 									<use>
 										<type>io.vertx.core.spi.transport.Transport</type>
+									</use>
+								</uses>
+							</module>
+							<module>
+								<name>io.vertx.client.sql.pg</name>
+								<requires>
+									<require>
+										<module>com.ongres.scram.client</module>
+									</require>
+									<require>
+										<module>com.ongres.scram.common</module>
+									</require>
+								</requires>
+							</module>
+							<module>
+								<name>org.apache.logging.log4j.core</name>
+								<uses>
+									<use>
+										<type>org.apache.logging.log4j.core.util.ContextDataProvider</type>
+									</use>
+									<use>
+										<type>org.apache.logging.log4j.core.util.WatchEventService</type>
+									</use>
+									<use>
+										<type>org.apache.logging.log4j.core.net.MailManagerFactory</type>
 									</use>
 								</uses>
 							</module>
