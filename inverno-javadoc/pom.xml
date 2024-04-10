@@ -89,100 +89,94 @@
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-base</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-boot</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-configuration</artifactId>
-			<version>${version.inverno.mods}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-grpc-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-grpc-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-http-base</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-http-client</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-http-server</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-irt</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-ldap</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-redis</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-redis-lettuce</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-security</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-security-http</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-security-jose</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-security-ldap</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-sql</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-sql-vertx</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-web-server</artifactId>
-			<version>${version.inverno.mods}</version>
 		</dependency>
 		
 		<!-- Tools -->
 		<dependency>
 			<groupId>io.inverno.tool</groupId>
 			<artifactId>inverno-build-tools</artifactId>
-			<version>${version.inverno.tools}</version>
 		</dependency>
 		<!-- <dependency>
 			<groupId>io.inverno.tool</groupId>
 			<artifactId>inverno-maven-plugin</artifactId>
 			<version>${version.inverno.tools}</version>
 		</dependency> -->
+		<dependency>
+			<groupId>io.inverno.tool</groupId>
+			<artifactId>inverno-grpc-protoc-plugin</artifactId>
+		</dependency>
 		
 		<!-- Optional -->
 		<dependency>
@@ -327,6 +321,60 @@
 								<artifactItem>
 									<groupId>io.inverno.mod</groupId>
 									<artifactId>inverno-configuration</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-grpc-base</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.grpc.base</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-grpc-base</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-grpc-client</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.grpc.client</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-grpc-client</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-grpc-server</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.grpc.server</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-grpc-server</artifactId>
 									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
@@ -622,6 +670,24 @@
 						</configuration>
 					</execution> -->
 					<execution>
+						<id>unpack-sources-tool-inverno-grpc-protoc-plugin</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.tool.grpc.protocplugin</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.tool</groupId>
+									<artifactId>inverno-grpc-protoc-plugin</artifactId>
+									<version>${version.inverno.tools}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-dependencies</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -647,7 +713,7 @@
 						<configuration>
 							<executable>${JAVA_HOME}/bin/javadoc</executable>
 							<workingDirectory>${project.build.directory}</workingDirectory>
-							<commandlineArgs>-p jmods --module-source-path jmods-src -d apidocs -author -link https://docs.oracle.com/en/java/javase/21/docs/api -link https://netty.io/4.1/api/ -link https://projectreactor.io/docs/core/release/api/ -link https://www.reactive-streams.org/reactive-streams-1.0.4-javadoc/ -windowtitle "Inverno Framework SDK ${project.version}" -doctitle "&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;" --module io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.http.base,io.inverno.mod.http.client,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web.server,io.inverno.tool.buildtools
+							<commandlineArgs>-p jmods --module-source-path jmods-src -d apidocs -author -link https://docs.oracle.com/en/java/javase/21/docs/api -link https://netty.io/4.1/api/ -link https://projectreactor.io/docs/core/release/api/ -link https://www.reactive-streams.org/reactive-streams-1.0.4-javadoc/ -windowtitle "Inverno Framework SDK ${project.version}" -doctitle "&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;" --module io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.grpc.base,io.inverno.mod.grpc.client,io.inverno.mod.grpc.server,io.inverno.mod.http.base,io.inverno.mod.http.client,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web.server,io.inverno.tool.buildtools,io.inverno.tool.grpc.protocplugin
 							</commandlineArgs>
 						</configuration>
 					</execution>
