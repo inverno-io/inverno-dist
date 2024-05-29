@@ -160,7 +160,7 @@ However the recommended way is to provide a specific `log4j2.xml` logging config
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config https://raw.githubusercontent.com/apache/logging-log4j2/rel/2.14.0/log4j-core/src/main/resources/Log4j-config.xsd" 
+    xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config https://raw.githubusercontent.com/apache/logging-log4j2/rel/2.14.0/log4j-core/src/main/resources/Log4j-config.xsd"
     status="WARN" shutdownHook="disable">
 
     <Appenders>
@@ -188,7 +188,7 @@ The application is now ready and can be run using the `inverno:run` goal:
 $ mvn inverno:run
 
 ...
-[INFO] --- inverno-maven-plugin:${VERSION_INVERNO_TOOLS}:run (default-cli) @ sample-app ---
+[INFO] --- inverno:${VERSION_INVERNO_TOOLS}:run (default-cli) @ sample-app ---
 [INFO] Running project: io.inverno.example.sample_app@1.0.0-SNAPSHOT...
  [═══════════════════════════════════════════════ 100 % ══════════════════════════════════════════════] 
 2021-04-08 23:50:35,261 INFO  [main] i.w.c.v.Application - Inverno is starting...
@@ -242,16 +242,17 @@ Hello, world!
 
 The application can be gracefully shutdown by pressing `Ctrl-c`.
 
-### Building the application image
+### Packaging the application image
 
-In order to create a native image containing the application and all its dependencies including JDK's dependencies, we can simply invoke the `inverno:build-app` goal:
+In order to create a native image containing the application and all its dependencies including JDK's dependencies, we can simply invoke the `inverno:package-app` goal:
 
 ```plaintext
-$ mvn inverno:build-app
+$ mvn inverno:package-app
 
 ...
+ [INFO] --- inverno:${VERSION_INVERNO_TOOLS}:package-app (default-cli) @ sample-app ---
 [INFO] Building application image: /home/jkuhn/Devel/git/frmk/io.inverno.example.sample-app/target/maven-inverno/application_linux_amd64/sample-app-1.0.0-SNAPSHOT...
- [═══════════════════════════════════════════════  67 % ═════════════>                                ] Creating archive sample-app-1.0.0-SNAPSHOT-application_linux_amd64.zip...
+ [═══════════════════════════════════════════════  69 % ═══════════════>                              ] Packaging project application...
 ```
 
 > This uses `jpackage` tool which is an incubating feature in JDK<16, if you intend to build an application image with an old JDK, you'll need to explicitly add the `jdk.incubator.jpackage` module in `MAVEN_OPTS`:
@@ -281,10 +282,10 @@ It is also possible to create platform specific package such as `.deb` or a `.ms
                 <artifactId>inverno-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>build-app</id>
+                        <id>package-app</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>build-app</goal>
+                            <goal>package-app</goal>
                         </goals>
                         <configuration>
                             <formats>
