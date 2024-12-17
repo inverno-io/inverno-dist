@@ -100,6 +100,22 @@
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-discovery</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-discovery-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-discovery-http-k8s</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-discovery-http-meta</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-grpc-base</artifactId>
 		</dependency>
 		<dependency>
@@ -161,6 +177,10 @@
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
 			<artifactId>inverno-sql-vertx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.inverno.mod</groupId>
+			<artifactId>inverno-web-base</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.inverno.mod</groupId>
@@ -329,6 +349,78 @@
 								<artifactItem>
 									<groupId>io.inverno.mod</groupId>
 									<artifactId>inverno-configuration</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-discovery</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.discovery</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-discovery</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-discovery-http</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.discovery.http</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-discovery-http</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-discovery-http-k8s</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.discovery.http.k8s</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-discovery-http-k8s</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-sources-mod-inverno-discovery-http-meta</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.discovery.http.meta</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-discovery-http-meta</artifactId>
 									<version>${version.inverno.mods}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
@@ -624,6 +716,24 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>unpack-sources-mod-inverno-web-base</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/jmods-src/io.inverno.mod.web.base</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>io.inverno.mod</groupId>
+									<artifactId>inverno-web-base</artifactId>
+									<version>${version.inverno.mods}</version>
+									<classifier>sources</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-sources-mod-inverno-web-client</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -739,7 +849,7 @@
 						<configuration>
 							<executable>${JAVA_HOME}/bin/javadoc</executable>
 							<workingDirectory>${project.build.directory}</workingDirectory>
-							<commandlineArgs>-p jmods --module-source-path jmods-src -d apidocs -author -link https://docs.oracle.com/en/java/javase/21/docs/api -link https://netty.io/4.1/api/ -link https://projectreactor.io/docs/core/release/api/ -link https://www.reactive-streams.org/reactive-streams-1.0.4-javadoc/ -windowtitle "Inverno Framework SDK ${project.version}" -doctitle "&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;" --module io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.grpc.base,io.inverno.mod.grpc.client,io.inverno.mod.grpc.server,io.inverno.mod.http.base,io.inverno.mod.http.client,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web.client,io.inverno.mod.web.server,io.inverno.tool.buildtools,io.inverno.tool.grpc.protocplugin
+							<commandlineArgs>-p jmods --module-source-path jmods-src -d apidocs -author -link https://docs.oracle.com/en/java/javase/21/docs/api -link https://netty.io/4.1/api/ -link https://projectreactor.io/docs/core/release/api/ -link https://www.reactive-streams.org/reactive-streams-1.0.4-javadoc/ -windowtitle "Inverno Framework SDK ${project.version}" -doctitle "&lt;h1 class="title"&gt;Inverno Framework Software Development Kit ${project.version}&lt;/h1&gt;&lt;p&gt;This document is the API specification for the Inverno Framework modules.&lt;/p&gt;" --module io.inverno.core,io.inverno.core.annotation,io.inverno.mod.base,io.inverno.mod.boot,io.inverno.mod.configuration,io.inverno.mod.discovery,io.inverno.mod.discovery.http,io.inverno.mod.discovery.http.k8s,io.inverno.mod.discovery.http.meta,io.inverno.mod.grpc.base,io.inverno.mod.grpc.client,io.inverno.mod.grpc.server,io.inverno.mod.http.base,io.inverno.mod.http.client,io.inverno.mod.http.server,io.inverno.mod.irt,io.inverno.mod.ldap,io.inverno.mod.redis,io.inverno.mod.redis.lettuce,io.inverno.mod.security,io.inverno.mod.security.http,io.inverno.mod.security.jose,io.inverno.mod.security.ldap,io.inverno.mod.sql,io.inverno.mod.sql.vertx,io.inverno.mod.web.base,io.inverno.mod.web.client,io.inverno.mod.web.server,io.inverno.tool.buildtools,io.inverno.tool.grpc.protocplugin
 							</commandlineArgs>
 						</configuration>
 					</execution>

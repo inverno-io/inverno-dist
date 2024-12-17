@@ -27,7 +27,7 @@ The Inverno distribution thus defines a consistent sets of dependencies and conf
 
 The Inverno framework requires [JDK][jdk] 15 or later and [Apache Maven][maven] 3.6.0 or later.
 
-> The Inverno compiler (when displaying bean dependency cycles), the Inverno tools (when displaying the progress bar) and the standard application banner (displayed when bootstrapping an Inverno application) output unicode characters which are supported out of the box by Linux or MacOS terminals but unfortunately not by the Windows terminal for which the unicode support must be enabled explicitly, this can be done in Regional Settings > Administrative > Change System Local > Use Unicode UTF-8 for worldwide language support. Another viable solution is to use the Git bash on Windows which also supports unicode out of the box. Please note that this is purely cosmetic and has no impact on the applications.
+> The Inverno compiler (when displaying bean dependency cycles), the Inverno tools (when displaying the progress bar) and the standard application banner (displayed when bootstrapping an Inverno application) output Unicode characters which are supported out of the box by Linux or macOS terminals but unfortunately not by the Windows terminal for which the Unicode support must be enabled explicitly, this can be done in Regional Settings > Administrative > Change System Local > Use Unicode UTF-8 for worldwide language support. Another viable solution is to use the Git bash on Windows which also supports Unicode out of the box. Please note that this is purely cosmetic and has no impact on the applications.
 
 ## Creating an Inverno project
 
@@ -154,7 +154,7 @@ Inverno framework is using [Log4j 2][log4j-2] for logging, Inverno application l
 
 Log4j 2 provides a default configuration with a default root logger level set to `ERROR`, resulting in no info messages being output when starting an application. This can be changed by setting `-Dorg.apache.logging.log4j.level=INFO` system property when running the application.
 
-However the recommended way is to provide a specific `log4j2.xml` logging configuration file in the project resources under `src/main/resources`:
+However, the recommended way is to provide a specific `log4j2.xml` logging configuration file in the project resources under `src/main/resources`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -190,7 +190,7 @@ $ mvn inverno:run
 ...
 [INFO] --- inverno:${VERSION_INVERNO_TOOLS}:run (default-cli) @ sample-app ---
 [INFO] Running project: io.inverno.example.sample_app@1.0.0-SNAPSHOT...
- [═══════════════════════════════════════════════ 100 % ══════════════════════════════════════════════] 
+ [═════════════════════════════════════════════ 100 % ════════════════════════════════════════════] 
 2021-04-08 23:50:35,261 INFO  [main] i.w.c.v.Application - Inverno is starting...
 
 
@@ -252,7 +252,7 @@ $ mvn inverno:package-app
 ...
  [INFO] --- inverno:${VERSION_INVERNO_TOOLS}:package-app (default-cli) @ sample-app ---
 [INFO] Building application image: /home/jkuhn/Devel/git/frmk/io.inverno.example.sample-app/target/maven-inverno/application_linux_amd64/sample-app-1.0.0-SNAPSHOT...
- [═══════════════════════════════════════════════  69 % ═══════════════>                              ] Packaging project application...
+ [═════════════════════════════════════════════  69 % ═══════════════>                            ] Packaging project application...
 ```
 
 > This uses `jpackage` tool which is an incubating feature in JDK<16, if you intend to build an application image with an old JDK, you'll need to explicitly add the `jdk.incubator.jpackage` module in `MAVEN_OPTS`:

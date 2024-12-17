@@ -122,6 +122,26 @@
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-discovery</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-discovery-http</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-discovery-http-k8s</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-discovery-http-meta</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-grpc-base</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
@@ -203,6 +223,11 @@
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-sql-vertx</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-web-base</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
 			<dependency>
