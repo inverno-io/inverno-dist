@@ -139,6 +139,19 @@
 								</requires>
 							</module>
 							<module>
+								<name>io.netty.common</name>
+								<exports>
+									<export>
+										<package>io.netty.util.internal.shaded.org.jctools.counters</package>
+										<remove>true</remove>
+									</export>
+									<export>
+										<package>io.netty.util.internal.shaded.org.jctools.maps</package>
+										<remove>true</remove>
+									</export>
+								</exports>
+							</module>
+							<module>
 								<name>io.vertx.core</name>
 								<uses>
 									<use>
