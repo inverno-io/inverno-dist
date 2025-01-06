@@ -25,7 +25,7 @@ The Inverno distribution thus defines a consistent sets of dependencies and conf
 
 ## Requirements
 
-The Inverno framework requires [JDK][jdk] 15 or later and [Apache Maven][maven] 3.6.0 or later.
+The Inverno framework requires [JDK][jdk] 21 or later and [Apache Maven][maven] 3.6.0 or later.
 
 > The Inverno compiler (when displaying bean dependency cycles), the Inverno tools (when displaying the progress bar) and the standard application banner (displayed when bootstrapping an Inverno application) output Unicode characters which are supported out of the box by Linux or macOS terminals but unfortunately not by the Windows terminal for which the Unicode support must be enabled explicitly, this can be done in Regional Settings > Administrative > Change System Local > Use Unicode UTF-8 for worldwide language support. Another viable solution is to use the Git bash on Windows which also supports Unicode out of the box. Please note that this is purely cosmetic and has no impact on the applications.
 
@@ -87,7 +87,7 @@ Inverno modules dependencies can be added in the `<dependencies/>` section of th
         </dependency>
         <dependency>
             <groupId>io.inverno.mod</groupId>
-            <artifactId>inverno-web</artifactId>
+            <artifactId>inverno-web-server</artifactId>
         </dependency>
     </dependencies>
 </project>
@@ -189,9 +189,7 @@ $ mvn inverno:run
 
 ...
 [INFO] --- inverno:${VERSION_INVERNO_TOOLS}:run (default-cli) @ sample-app ---
-[INFO] Running project: io.inverno.example.sample_app@1.0.0-SNAPSHOT...
- [═════════════════════════════════════════════ 100 % ════════════════════════════════════════════] 
-2021-04-08 23:50:35,261 INFO  [main] i.w.c.v.Application - Inverno is starting...
+2025-01-06 13:55:28,417 INFO  [main] i.i.c.v.Application - Inverno is starting...                    ] Running project...
 
 
      ╔════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -207,8 +205,8 @@ $ mvn inverno:run
      ║                      ' -- '                                                                ║
      ╠════════════════════════════════════════════════════════════════════════════════════════════╣
      ║ Java runtime        : OpenJDK Runtime Environment                                          ║
-     ║ Java version        : 16+36-2231                                                           ║
-     ║ Java home           : /home/jkuhn/Devel/jdk/jdk-16                                         ║
+     ║ Java version        : 21.0.2+13-58                                                         ║
+     ║ Java home           : /home/jkuhn/Devel/jdk/jdk-21.0.2                                     ║
      ║                                                                                            ║
      ║ Application module  : io.inverno.example.sample_app                                        ║
      ║ Application version : 1.0.0-SNAPSHOT                                                       ║
@@ -219,17 +217,22 @@ $ mvn inverno:run
      ╚════════════════════════════════════════════════════════════════════════════════════════════╝
 
 
-2021-04-08 23:50:35,266 INFO  [main] i.w.e.s.Sample_app - Starting Module io.inverno.example.sample_app...
-2021-04-08 23:50:35,266 INFO  [main] i.w.m.b.Boot - Starting Module io.inverno.mod.boot...
-2021-04-08 23:50:35,446 INFO  [main] i.w.m.b.Boot - Module io.inverno.mod.boot started in 179ms
-2021-04-08 23:50:35,446 INFO  [main] i.w.m.w.Web - Starting Module io.inverno.mod.web.server...
-2021-04-08 23:50:35,446 INFO  [main] i.w.m.h.s.Server - Starting Module io.inverno.mod.http.server...
-2021-04-08 23:50:35,446 INFO  [main] i.w.m.h.b.Base - Starting Module io.inverno.mod.http.base...
-2021-04-08 23:50:35,450 INFO  [main] i.w.m.h.b.Base - Module io.inverno.mod.http.base started in 3ms
-2021-04-08 23:50:35,545 INFO  [main] i.w.m.h.s.i.HttpServer - HTTP Server (nio) listening on http://0.0.0.0:8080
-2021-04-08 23:50:35,546 INFO  [main] i.w.m.h.s.Server - Module io.inverno.mod.http.server started in 99ms
-2021-04-08 23:50:35,546 INFO  [main] i.w.m.w.Web - Module io.inverno.mod.web.server started in 99ms
-2021-04-08 23:50:35,546 INFO  [main] i.w.e.s.Sample_app - Module io.inverno.example.sample_app started in 281ms
+2025-01-06 13:55:28,428 INFO  [main] i.i.e.s.Sample_app - Starting Module io.inverno.example.sample_app...
+2025-01-06 13:55:28,429 INFO  [main] i.i.m.b.Boot - Starting Module io.inverno.mod.boot...
+2025-01-06 13:55:28,652 INFO  [main] i.i.m.b.Boot - Module io.inverno.mod.boot started in 222ms
+2025-01-06 13:55:28,652 INFO  [main] i.i.m.w.s.Server - Starting Module io.inverno.mod.web.server...
+2025-01-06 13:55:28,653 INFO  [main] i.i.m.h.s.Server - Starting Module io.inverno.mod.http.server...
+2025-01-06 13:55:28,653 INFO  [main] i.i.m.h.b.Base - Starting Module io.inverno.mod.http.base...
+2025-01-06 13:55:28,658 INFO  [main] i.i.m.h.b.Base - Module io.inverno.mod.http.base started in 4ms
+2025-01-06 13:55:28,670 INFO  [main] i.i.m.w.b.Base - Starting Module io.inverno.mod.web.base...
+2025-01-06 13:55:28,670 INFO  [main] i.i.m.h.b.Base - Starting Module io.inverno.mod.http.base...
+2025-01-06 13:55:28,671 INFO  [main] i.i.m.h.b.Base - Module io.inverno.mod.http.base started in 0ms
+2025-01-06 13:55:28,672 INFO  [main] i.i.m.w.b.Base - Module io.inverno.mod.web.base started in 1ms
+2025-01-06 13:55:28,724 INFO  [main] i.i.m.h.s.i.HttpServer - HTTP Server (nio) listening on http://0.0.0.0:8080
+2025-01-06 13:55:28,725 INFO  [main] i.i.m.h.s.Server - Module io.inverno.mod.http.server started in 72ms
+2025-01-06 13:55:28,725 INFO  [main] i.i.m.w.s.Server - Module io.inverno.mod.web.server started in 72ms
+2025-01-06 13:55:28,779 INFO  [main] i.i.e.s.Sample_app - Module io.inverno.example.sample_app started in 358ms
+2025-01-06 13:55:28,779 INFO  [main] i.i.c.v.Application - Application io.inverno.example.sample_app started in 411ms
 
 ```
 
@@ -271,7 +274,7 @@ $ ./sample-app-1.0.0-SNAPSHOT/bin/sample-app
 ...
 ```
 
-It is also possible to create platform specific package such as `.deb` or a `.msi` by defining particular formats in the Inverno Maven plugin configuration:
+It is also possible to package platform specific application distribution in `.deb` or `.msi` package formats and/or `zip` archive format by defining particular package and/or archive formats in the Inverno Maven plugin configuration:
 
 ```xml
 <project>
@@ -288,10 +291,12 @@ It is also possible to create platform specific package such as `.deb` or a `.ms
                             <goal>package-app</goal>
                         </goals>
                         <configuration>
-                            <formats>
-                                <format>zip</format>
-                                <format>deb</format>
-                            </formats>
+							<packageTypes>
+								<packageType>deb</packageType>
+							</packageTypes>
+                            <archiveFormats>
+                                <archiveFormat>zip</archiveFormat>
+                            </archiveFormats>
                         </configuration>
                     </execution>
                 </executions>
@@ -302,7 +307,7 @@ It is also possible to create platform specific package such as `.deb` or a `.ms
 ```
 
 ```plaintext
-$ mvn package
+$ mvn install
 ...
 ```
 
