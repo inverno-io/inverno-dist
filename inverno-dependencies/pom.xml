@@ -217,6 +217,16 @@
 			</dependency>
 			<dependency>
 				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-session</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
+				<artifactId>inverno-session-http</artifactId>
+				<version>${version.inverno.mods}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.inverno.mod</groupId>
 				<artifactId>inverno-sql</artifactId>
 				<version>${version.inverno.mods}</version>
 			</dependency>
