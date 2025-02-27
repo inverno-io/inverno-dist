@@ -13,7 +13,9 @@
 
 # Inverno Distribution
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.inverno.dist/inverno-parent)](https://central.sonatype.com/search?namespace=io.inverno.dist)
 [![CI/CD](https://github.com/inverno-io/inverno-dist/actions/workflows/maven.yml/badge.svg)](https://github.com/inverno-io/inverno-dist/actions/workflows/maven.yml)
+[![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
 The Inverno distribution provides a parent POM `io.inverno.dist:inverno-parent` and a BOM `io.inverno.dist:inverno-dependencies` for developing Inverno components and applications.
 
