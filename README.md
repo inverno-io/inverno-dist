@@ -293,9 +293,9 @@ It is also possible to package platform specific application distribution in `.d
                             <goal>package-app</goal>
                         </goals>
                         <configuration>
-							<packageTypes>
-								<packageType>deb</packageType>
-							</packageTypes>
+                            <packageTypes>
+                                <packageType>deb</packageType>
+                            </packageTypes>
                             <archiveFormats>
                                 <archiveFormat>zip</archiveFormat>
                             </archiveFormats>
